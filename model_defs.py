@@ -1,3 +1,20 @@
+"""DEPRECATED: model_defs.py
+
+This module is preserved for backward compatibility with CreateBubblePlot.ipynb.
+New code should use the `model` package instead:
+
+    from model.staking import compute_payouts
+    from model.scenarios import uniform_stakes
+
+This file will not be updated.
+"""
+import warnings
+warnings.warn(
+    "model_defs is deprecated. Use the `model` package instead.",
+    DeprecationWarning,
+    stacklevel=2,
+)
+
 __author__ = 'Corey Petty'
 import pandas as pd
 import numpy as np
