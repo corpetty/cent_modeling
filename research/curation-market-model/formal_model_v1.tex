@@ -8,6 +8,9 @@
 \usepackage{parskip}
 \usepackage{xcolor}
 \usepackage{titlesec}
+\usepackage{graphicx}
+\usepackage{caption}
+\graphicspath{{./}}
 
 \geometry{margin=1.2in}
 
@@ -127,6 +130,20 @@ The \textbf{total earnings} of curator $i$ over the lifetime of signal $S$ are:
 The inner sum $\Phi_i = \sum_{j=i+1}^{n} \frac{v_j}{V_j^-}$ measures the \emph{relative growth} of the pool after curator $i$ arrived. Earlier curators face a smaller denominator $V_j^-$ for each subsequent $j$, yielding larger $\Phi_i$. This is the formal expression of the first-mover advantage.
 \end{remark}
 
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=0.92\linewidth]{fig1_bubble.png}
+  \caption{Curator stake vs.\ total earnings (mixed-normal stake distribution, $\alpha=0.5$, $n=80$). Bubble size encodes total earnings; blue = profitable (recouped stake), red = did not recoup. Curators who arrived early are predominantly profitable regardless of stake magnitude.}
+  \label{fig:bubble}
+\end{figure}
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=0.92\linewidth]{fig2_earnings_trajectory.png}
+  \caption{Cumulative earnings $E_i$ as a function of subsequent curator arrivals for five representative curators (uniform stake distribution, $\alpha=0.5$). Dotted horizontal lines mark each curator's break-even stake. The earliest curator (orange) captures a disproportionate share of every subsequent stake.}
+  \label{fig:earnings_trajectory}
+\end{figure}
+
 \subsection{Revenue by Role}
 
 \textbf{Platform revenue:}
@@ -151,6 +168,13 @@ All stake is accounted for:
   \Pi_{\mathcal{P}} + \Pi_{\mathcal{K}} + \Pi_{\mathcal{C}} = V_n
 \]
 \end{proposition}
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=0.92\linewidth]{fig5_revenue_split.png}
+  \caption{Stacked revenue fractions for each agent class as $\alpha$ varies ($\beta=0.10$ fixed, $n=60$). At $\alpha \approx 0.45$ curators and creator receive roughly equal shares of non-platform revenue. Increasing $\alpha$ above $\sim$0.7 substantially compresses creator revenue.}
+  \label{fig:revenue_split}
+\end{figure}
 
 % ============================================================
 \section{Feed Mechanics}
@@ -187,6 +211,13 @@ Step window & $\mathbf{1}[\Delta t \leq W]$ & Only stakes within last $W$ time u
 \begin{remark}
 The choice of $w(\cdot)$ creates a tension between \emph{stability} (rewarding proven quality) and \emph{freshness} (surfacing new content). A key empirical question is which weight function best predicts consumer satisfaction.
 \end{remark}
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=0.92\linewidth]{fig3_ranking_decay.png}
+  \caption{Rank score $R(S,t)$ under four weight functions after staking stops (dashed vertical). Accumulation rank never decays, allowing old content to permanently dominate the feed. Exponential and power-law decay gracefully derank stale content; the step window hard-resets at boundary $W$.}
+  \label{fig:ranking_decay}
+\end{figure}
 
 \subsection{The Staking--Feed Duality}
 
@@ -244,6 +275,13 @@ For a signal $S$ and threshold rank $k$, the \textbf{discovery time} is:
 
 A lower $\Delta\tau^*$ for high-$q$ signals is desirable. Ideally, discovery time is negatively correlated with quality.
 
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=0.92\linewidth]{fig6_discovery.png}
+  \caption{Rank score rising as curators arrive (exponential inter-arrival times). The red dashed line marks the consumer discovery threshold; content becomes visible in the feed at $\Delta\tau^*$. Exponential-decay rank (blue) peaks and then naturally recedes as the content ages; accumulation rank (gold) never falls.}
+  \label{fig:discovery}
+\end{figure}
+
 \subsection{Curator ROI}
 
 \begin{definition}[Curator ROI]
@@ -254,6 +292,13 @@ The \textbf{return on investment} for curator $i$ is:
 \end{definition}
 
 The \textbf{participation constraint} requires $\mathbb{E}[\mathrm{ROI}_i] > 0$ for rational agents to stake. Characterizing when this holds is a key analytical target.
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=0.92\linewidth]{fig4_roi_phase.png}
+  \caption{Smoothed curator ROI as a function of arrival fraction across four values of $\alpha$ (uniform stake distribution, $n=60$). The break-even crossing (ROI = 0) shifts leftward as $\alpha$ decreases, shrinking the profitable participation window. Higher $\alpha$ is necessary but not sufficient for broad curator participation.}
+  \label{fig:roi_phase}
+\end{figure}
 
 % ============================================================
 \section{Open Questions for Validation}

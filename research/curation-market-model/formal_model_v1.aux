@@ -12,22 +12,35 @@
 \@writefile{toc}{\contentsline {subsection}{\numberline {3.1}Setup}{4}{subsection.3.1}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {3.2}Payout Parameters}{4}{subsection.3.2}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {3.3}Payout Function}{4}{subsection.3.3}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces Curator stake vs.\ total earnings (mixed-normal stake distribution, $\alpha =0.5$, $n=80$). Bubble size encodes total earnings; blue = profitable (recouped stake), red = did not recoup. Curators who arrived early are predominantly profitable regardless of stake magnitude.}}{5}{figure.caption.1}\protected@file@percent }
+\providecommand*\caption@xref[2]{\@setref\relax\@undefined{#1}}
+\newlabel{fig:bubble}{{1}{5}{Curator stake vs.\ total earnings (mixed-normal stake distribution, $\alpha =0.5$, $n=80$). Bubble size encodes total earnings; blue = profitable (recouped stake), red = did not recoup. Curators who arrived early are predominantly profitable regardless of stake magnitude}{figure.caption.1}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {3.4}Revenue by Role}{5}{subsection.3.4}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {4}Feed Mechanics}{5}{section.4}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.1}Ranking Function}{5}{subsection.4.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.2}Temporal Weight Functions}{6}{subsection.4.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.3}The Staking--Feed Duality}{6}{subsection.4.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {5}Consumer Surplus}{6}{section.5}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.1}Individual Utility}{6}{subsection.5.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.2}Aggregate Consumer Surplus}{6}{subsection.5.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {6}Mechanism Quality Metrics}{7}{section.6}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.1}Signal Accuracy}{7}{subsection.6.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.2}Discovery Speed}{7}{subsection.6.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.3}Curator ROI}{7}{subsection.6.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {7}Open Questions for Validation}{7}{section.7}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {7.1}Analytical Questions}{7}{subsection.7.1}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces Cumulative earnings $E_i$ as a function of subsequent curator arrivals for five representative curators (uniform stake distribution, $\alpha =0.5$). Dotted horizontal lines mark each curator's break-even stake. The earliest curator (orange) captures a disproportionate share of every subsequent stake.}}{6}{figure.caption.2}\protected@file@percent }
+\newlabel{fig:earnings_trajectory}{{2}{6}{Cumulative earnings $E_i$ as a function of subsequent curator arrivals for five representative curators (uniform stake distribution, $\alpha =0.5$). Dotted horizontal lines mark each curator's break-even stake. The earliest curator (orange) captures a disproportionate share of every subsequent stake}{figure.caption.2}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {4}Feed Mechanics}{6}{section.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.1}Ranking Function}{6}{subsection.4.1}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces Stacked revenue fractions for each agent class as $\alpha $ varies ($\beta =0.10$ fixed, $n=60$). At $\alpha \approx 0.45$ curators and creator receive roughly equal shares of non-platform revenue. Increasing $\alpha $ above $\sim $0.7 substantially compresses creator revenue.}}{7}{figure.caption.3}\protected@file@percent }
+\newlabel{fig:revenue_split}{{3}{7}{Stacked revenue fractions for each agent class as $\alpha $ varies ($\beta =0.10$ fixed, $n=60$). At $\alpha \approx 0.45$ curators and creator receive roughly equal shares of non-platform revenue. Increasing $\alpha $ above $\sim $0.7 substantially compresses creator revenue}{figure.caption.3}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.2}Temporal Weight Functions}{7}{subsection.4.2}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces Rank score $R(S,t)$ under four weight functions after staking stops (dashed vertical). Accumulation rank never decays, allowing old content to permanently dominate the feed. Exponential and power-law decay gracefully derank stale content; the step window hard-resets at boundary $W$.}}{8}{figure.caption.4}\protected@file@percent }
+\newlabel{fig:ranking_decay}{{4}{8}{Rank score $R(S,t)$ under four weight functions after staking stops (dashed vertical). Accumulation rank never decays, allowing old content to permanently dominate the feed. Exponential and power-law decay gracefully derank stale content; the step window hard-resets at boundary $W$}{figure.caption.4}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.3}The Staking--Feed Duality}{8}{subsection.4.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {5}Consumer Surplus}{8}{section.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.1}Individual Utility}{8}{subsection.5.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.2}Aggregate Consumer Surplus}{9}{subsection.5.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {6}Mechanism Quality Metrics}{9}{section.6}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.1}Signal Accuracy}{9}{subsection.6.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.2}Discovery Speed}{9}{subsection.6.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.3}Curator ROI}{9}{subsection.6.3}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces Rank score rising as curators arrive (exponential inter-arrival times). The red dashed line marks the consumer discovery threshold; content becomes visible in the feed at $\Delta \tau ^*$. Exponential-decay rank (blue) peaks and then naturally recedes as the content ages; accumulation rank (gold) never falls.}}{10}{figure.caption.5}\protected@file@percent }
+\newlabel{fig:discovery}{{5}{10}{Rank score rising as curators arrive (exponential inter-arrival times). The red dashed line marks the consumer discovery threshold; content becomes visible in the feed at $\Delta \tau ^*$. Exponential-decay rank (blue) peaks and then naturally recedes as the content ages; accumulation rank (gold) never falls}{figure.caption.5}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {7}Open Questions for Validation}{10}{section.7}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {7.1}Analytical Questions}{10}{subsection.7.1}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {6}{\ignorespaces Smoothed curator ROI as a function of arrival fraction across four values of $\alpha $ (uniform stake distribution, $n=60$). The break-even crossing (ROI = 0) shifts leftward as $\alpha $ decreases, shrinking the profitable participation window. Higher $\alpha $ is necessary but not sufficient for broad curator participation.}}{11}{figure.caption.6}\protected@file@percent }
+\newlabel{fig:roi_phase}{{6}{11}{Smoothed curator ROI as a function of arrival fraction across four values of $\alpha $ (uniform stake distribution, $n=60$). The break-even crossing (ROI = 0) shifts leftward as $\alpha $ decreases, shrinking the profitable participation window. Higher $\alpha $ is necessary but not sufficient for broad curator participation}{figure.caption.6}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {7.2}Simulation Questions}{11}{subsection.7.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {7.3}Empirical Questions}{11}{subsection.7.3}\protected@file@percent }
 \bibcite{corpetty2016}{1}
-\@writefile{toc}{\contentsline {subsection}{\numberline {7.2}Simulation Questions}{8}{subsection.7.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {7.3}Empirical Questions}{8}{subsection.7.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {8}Proposed Research Plan}{8}{section.8}\protected@file@percent }
-\gdef \@abspage@last{9}
+\@writefile{toc}{\contentsline {section}{\numberline {8}Proposed Research Plan}{12}{section.8}\protected@file@percent }
+\gdef \@abspage@last{12}

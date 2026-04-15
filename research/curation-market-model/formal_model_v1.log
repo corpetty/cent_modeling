@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.3.30)  15 APR 2026 14:38
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.3.30)  15 APR 2026 21:02
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -332,35 +332,71 @@ Package: titlesec 2025/01/04 v2.17 Sectioning titles
 \titlewidthlast=\dimen188
 \titlewidthfirst=\dimen189
 )
-\c@definition=\count314
-\c@proposition=\count315
-\c@remark=\count316
+(/home/petty/texlive/texmf-dist/tex/latex/graphics/graphicx.sty
+Package: graphicx 2024/12/31 v1.2e Enhanced LaTeX Graphics (DPC,SPQR)
+
+(/home/petty/texlive/texmf-dist/tex/latex/graphics/graphics.sty
+Package: graphics 2024/08/06 v1.4g Standard LaTeX Graphics (DPC,SPQR)
+
+(/home/petty/texlive/texmf-dist/tex/latex/graphics/trig.sty
+Package: trig 2023/12/02 v1.11 sin cos tan (DPC)
+)
+(/home/petty/texlive/texmf-dist/tex/latex/graphics-cfg/graphics.cfg
+File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
+)
+Package graphics Info: Driver file: pdftex.def on input line 106.
+)
+\Gin@req@height=\dimen190
+\Gin@req@width=\dimen191
+)
+(/home/petty/texlive/texmf-dist/tex/latex/caption/caption.sty
+Package: caption 2023/08/05 v3.6o Customizing captions (AR)
+
+(/home/petty/texlive/texmf-dist/tex/latex/caption/caption3.sty
+Package: caption3 2023/07/31 v2.4d caption3 kernel (AR)
+\caption@tempdima=\dimen192
+\captionmargin=\dimen193
+\caption@leftmargin=\dimen194
+\caption@rightmargin=\dimen195
+\caption@width=\dimen196
+\caption@indent=\dimen197
+\caption@parindent=\dimen198
+\caption@hangindent=\dimen199
+Package caption Info: Standard document class detected.
+)
+\c@caption@flags=\count314
+\c@continuedfloat=\count315
+Package caption Info: hyperref package is loaded.
+)
+\c@definition=\count316
+\c@proposition=\count317
+\c@remark=\count318
 
 (/home/petty/texlive/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
 File: l3backend-pdftex.def 2025-10-09 L3 backend support: PDF output (pdfTeX)
-\l__color_backend_stack_int=\count317
+\l__color_backend_stack_int=\count319
 )
 (./formal_model_v1.aux)
 \openout1 = `formal_model_v1.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 23.
-LaTeX Font Info:    ... okay on input line 23.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 23.
-LaTeX Font Info:    ... okay on input line 23.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 23.
-LaTeX Font Info:    ... okay on input line 23.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 23.
-LaTeX Font Info:    ... okay on input line 23.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 23.
-LaTeX Font Info:    ... okay on input line 23.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 23.
-LaTeX Font Info:    ... okay on input line 23.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 23.
-LaTeX Font Info:    ... okay on input line 23.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 23.
-LaTeX Font Info:    ... okay on input line 23.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 23.
-LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 26.
+LaTeX Font Info:    ... okay on input line 26.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 26.
+LaTeX Font Info:    ... okay on input line 26.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 26.
+LaTeX Font Info:    ... okay on input line 26.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 26.
+LaTeX Font Info:    ... okay on input line 26.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 26.
+LaTeX Font Info:    ... okay on input line 26.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 26.
+LaTeX Font Info:    ... okay on input line 26.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 26.
+LaTeX Font Info:    ... okay on input line 26.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 26.
+LaTeX Font Info:    ... okay on input line 26.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 26.
+LaTeX Font Info:    ... okay on input line 26.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -396,19 +432,31 @@ LaTeX Font Info:    ... okay on input line 23.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-Package hyperref Info: Link coloring OFF on input line 23.
+Package hyperref Info: Link coloring OFF on input line 26.
 (./formal_model_v1.out) (./formal_model_v1.out)
 \@outlinefile=\write3
 \openout3 = `formal_model_v1.out'.
 
 
 Couldn't patch \deferred@thm@head!
-LaTeX Font Info:    Trying to load font information for U+msa on input line 26.
+(/home/petty/texlive/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
+Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
+Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
+85.
+
+(/home/petty/texlive/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
+File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
+e
+))
+Package caption Info: Begin \AtBeginDocument code.
+Package caption Info: End \AtBeginDocument code.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 29.
+
 
 (/home/petty/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 26.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 29.
 
 
 (/home/petty/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
@@ -421,18 +469,71 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 \openout4 = `formal_model_v1.toc'.
 
  [2]
-Overfull \hbox (119.74655pt too wide) in paragraph at lines 56--66
+Overfull \hbox (119.74655pt too wide) in paragraph at lines 59--69
  [] 
  []
 
 [3{/home/petty/texlive/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}]
-[4] [5] [6] [7]
-Overfull \hbox (1.66849pt too wide) in paragraph at lines 293--294
+[4]
+<fig1_bubble.png, id=169, 601.50877pt x 406.9357pt>
+File: fig1_bubble.png Graphic file (type png)
+<use fig1_bubble.png>
+Package pdftex.def Info: fig1_bubble.png  used on input line 135.
+(pdftex.def)             Requested size: 405.57884pt x 274.38411pt.
+<fig2_earnings_trajectory.png, id=171, 601.50877pt x 406.9357pt>
+File: fig2_earnings_trajectory.png Graphic file (type png)
+<use fig2_earnings_trajectory.png>
+Package pdftex.def Info: fig2_earnings_trajectory.png  used on input line 142.
+(pdftex.def)             Requested size: 405.57884pt x 274.38411pt.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[5 <./fig1_bubble.png>]
+<fig5_revenue_split.png, id=182, 613.18315pt x 406.9357pt>
+File: fig5_revenue_split.png Graphic file (type png)
+<use fig5_revenue_split.png>
+Package pdftex.def Info: fig5_revenue_split.png  used on input line 174.
+(pdftex.def)             Requested size: 405.57884pt x 269.16826pt.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[6 <./fig2_earnings_trajectory.png>]
+<fig3_ranking_decay.png, id=191, 621.522pt x 406.9357pt>
+File: fig3_ranking_decay.png Graphic file (type png)
+<use fig3_ranking_decay.png>
+Package pdftex.def Info: fig3_ranking_decay.png  used on input line 217.
+(pdftex.def)             Requested size: 405.57884pt x 265.55443pt.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[7 <./fig5_revenue_split.png>] [8 <./fig3_ranking_decay.png>]
+<fig6_discovery.png, id=208, 613.18315pt x 406.9357pt>
+File: fig6_discovery.png Graphic file (type png)
+<use fig6_discovery.png>
+Package pdftex.def Info: fig6_discovery.png  used on input line 280.
+(pdftex.def)             Requested size: 405.57884pt x 269.16826pt.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+<fig4_roi_phase.png, id=209, 619.29831pt x 406.9357pt>
+File: fig4_roi_phase.png Graphic file (type png)
+<use fig4_roi_phase.png>
+Package pdftex.def Info: fig4_roi_phase.png  used on input line 298.
+(pdftex.def)             Requested size: 405.57884pt x 266.50446pt.
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[9] [10 <./fig6_discovery.png>]
+Overfull \hbox (1.66849pt too wide) in paragraph at lines 338--339
 []\OT1/cmr/bx/n/12 Analytical\OT1/cmr/m/n/12 : De-rive closed-form par-tic-i-pa
 -tion con-straints; char-ac-ter-ize Nash equi-
  []
 
-[8] [9] (./formal_model_v1.aux)
+[11 <./fig4_roi_phase.png>] [12] (./formal_model_v1.aux)
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2026-01-19>
@@ -441,10 +542,10 @@ Package rerunfilecheck Info: File `formal_model_v1.out' has not changed.
 (rerunfilecheck)             Checksum: 85F34C5A6EFDA71D3B48ED3F6130FD34;3615.
  ) 
 Here is how much of TeX's memory you used:
- 10617 strings out of 469517
- 159146 string characters out of 5470008
- 588447 words of memory out of 5000000
- 39087 multiletter control sequences out of 15000+600000
+ 12356 strings out of 469517
+ 192175 string characters out of 5470008
+ 617419 words of memory out of 5000000
+ 40792 multiletter control sequences out of 15000+600000
  639325 words of font info for 83 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  75i,9n,79p,1204b,585s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -463,10 +564,10 @@ s/cm/cmti12.pfb></home/petty/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/
 cmti8.pfb></home/petty/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12
 .pfb></home/petty/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10
 .pfb></home/petty/texlive/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb>
-Output written on formal_model_v1.pdf (9 pages, 198633 bytes).
+Output written on formal_model_v1.pdf (12 pages, 536885 bytes).
 PDF statistics:
- 305 PDF objects out of 1000 (max. 8388607)
- 259 compressed objects within 3 object streams
- 64 named destinations out of 1000 (max. 500000)
- 209 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 339 PDF objects out of 1000 (max. 8388607)
+ 278 compressed objects within 3 object streams
+ 73 named destinations out of 1000 (max. 500000)
+ 239 words of extra memory for PDF output out of 10000 (max. 10000000)
 
