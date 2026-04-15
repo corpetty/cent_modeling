@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A Generalized Model of Community Curation Pipelines</title>
+<script>
+MathJax = {
+  tex: {
+    inlineMath: [['$', '$'], ['\\(', '\\)']],
+    displayMath: [['$$', '$$'], ['\\[', '\\]']],
+    tags: 'ams'
+  }
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+<style>
+  body {
+    font-family: 'Georgia', serif;
+    max-width: 860px;
+    margin: 60px auto;
+    padding: 0 30px;
+    color: #222;
+    line-height: 1.75;
+    font-size: 16px;
+  }
+  h1 { font-size: 2em; margin-bottom: 0.2em; }
+  h2 { font-size: 1.4em; border-bottom: 1px solid #ccc; padding-bottom: 4px; margin-top: 2.5em; }
+  h3 { font-size: 1.15em; margin-top: 2em; color: #333; }
+  .subtitle { color: #555; font-size: 1.05em; margin-bottom: 0.2em; }
+  .author { color: #444; }
+  .definition, .proposition, .remark {
+    background: #f9f9f9;
+    border-left: 4px solid #555;
+    padding: 10px 16px;
+    margin: 16px 0;
+    border-radius: 2px;
+  }
+  .definition { border-color: #3a6ea5; }
+  .proposition { border-color: #2e8b57; }
+  .remark { border-color: #b8860b; }
+  .label {
+    font-weight: bold;
+    font-style: italic;
+  }
+  table {
+    border-collapse: collapse;
+    width: 100%;
+    margin: 16px 0;
+    font-size: 0.95em;
+  }
+  th, td {
+    border: 1px solid #ccc;
+    padding: 8px 12px;
+    text-align: left;
+  }
+  th { background: #f0f0f0; font-weight: bold; }
+  blockquote {
+    background: #f5f5f5;
+    border-left: 4px solid #aaa;
+    padding: 10px 16px;
+    margin: 16px 0;
+    font-style: italic;
+  }
+  a { color: #3a6ea5; }
+  ol, ul { margin-left: 1.5em; }
+  li { margin-bottom: 0.4em; }
+  .toc { background: #fafafa; border: 1px solid #ddd; padding: 16px 24px; display: inline-block; margin-bottom: 2em; }
+  .toc h4 { margin: 0 0 8px 0; }
+  hr { border: none; border-top: 1px solid #ddd; margin: 2em 0; }
+</style>
+</head>
+<body>
+
+<h1>A Generalized Model of Community Curation Pipelines</h1>
+<p class="subtitle">Formal Specification v1.0</p>
+<p class="author">Corey Petty</p>
+
+<hr>
+
+<div class="toc">
+  <h4>Table of Contents</h4>
+  <ol>
+    <li><a href="#motivation">Motivation</a></li>
+    <li><a href="#primitives">Primitives</a></li>
+    <li><a href="#staking">The Staking Game</a></li>
+    <li><a href="#feed">Feed Mechanics</a></li>
+    <li><a href="#consumer">Consumer Surplus</a></li>
+    <li><a href="#metrics">Mechanism Quality Metrics</a></li>
+    <li><a href="#questions">Open Questions for Validation</a></li>
+    <li><a href="#plan">Proposed Research Plan</a></li>
+  </ol>
+</div>
+
+<h2 id="motivation">1. Motivation</h2>
+
+<p>Social platforms face a fundamental coordination problem: content quality is unobservable at publication time, yet consumers need high-quality content to surface quickly. Traditional solutions — editorial curation, engagement algorithms, follower graphs — either centralize judgment or optimize for engagement proxies that diverge from quality.</p>
+
+<p>This document formalizes a <strong>community curation pipeline</strong>: a market mechanism in which agents voluntarily stake resources on content signals, earning rewards proportional to their contribution and timing. Staking simultaneously (a) compensates early discovery and (b) produces a ranked feed that consumers rely on.</p>
+
+<p>The model generalizes work originally done to describe the Cent/Yours Network payout system [<a href="#ref1">1</a>], extending it to a 4-sided market with explicit feed mechanics, consumer surplus, and formal mechanism evaluation criteria.</p>
+
+<h2 id="primitives">2. Primitives</h2>
+
+<h3>2.1 Signals</h3>
+
+<p>Let $\mathcal{S} = \{S_1, S_2, \ldots\}$ be the set of <strong>signals</strong> (content items, claims, proposals, or any community contribution) published to the platform.</p>
+
+<p>Each signal $S \in \mathcal{S}$ is characterized by:</p>
+<ul>
+  <li>$q(S) \in [0, 1]$ — <strong>true quality</strong>, a latent variable not directly observable at publication time</li>
+  <li>$\tau(S) \in \mathbb{R}_{\geq 0}$ — <strong>publication time</strong></li>
+</ul>
+
+<h3>2.2 Agents</h3>
+
+<table>
+  <tr><th>Role</th><th>Description</th><th>Action</th><th>Incentive</th></tr>
+  <tr><td><strong>Creator</strong></td><td>Produces signal $S$</td><td>Publish</td><td>Maximize downstream revenue</td></tr>
+  <tr><td><strong>Curator</strong></td><td>Evaluates and endorses $S$</td><td>Stake $v_i$ at time $t_i$</td><td>Earn from subsequent staking</td></tr>
+  <tr><td><strong>Consumer</strong></td><td>Discovers and consumes $S$</td><td>Browse ranked feed</td><td>Minimize search cost; maximize quality</td></tr>
+  <tr><td><strong>Platform</strong></td><td>Coordinates the market</td><td>Rank feed; extract cut</td><td>Sustain operations</td></tr>
+</table>
+
+<p>Let $\mathcal{C}$, $\mathcal{K}$, $\mathcal{U}$, and $\mathcal{P}$ denote curators, creators, consumers, and the platform respectively. The platform is treated as the mechanism designer, not a strategic agent.</p>
+
+<h3>2.3 Stake Space</h3>
+
+<p>A <strong>stake</strong> is any scarce resource committed irrevocably to a signal. In the original Cent model this is currency; in the general case it may be tokens, reputation, attention, or votes. Stakes are assumed cardinal and summable.</p>
+
+<h2 id="staking">3. The Staking Game</h2>
+
+<h3>3.1 Setup</h3>
+
+<p>Fix a signal $S$. Curators arrive and stake sequentially. Let the ordered staking sequence be:</p>
+
+$$
+(v_1, t_1),\ (v_2, t_2),\ \ldots,\ (v_n, t_n) \quad \text{with } t_1 < t_2 < \cdots < t_n
+$$
+
+<p>where $v_i > 0$ is the stake of the $i$-th curator and $t_i$ is their arrival time.</p>
+
+<div class="definition">
+  <span class="label">Definition (Cumulative Pool).</span> The cumulative pool just before curator $i$ arrives is:
+  $$V_i^- = \sum_{k=1}^{i-1} v_k, \qquad V_1^- = 0$$
+  The total pool after all $n$ curators have staked is $V_n = \sum_{k=1}^{n} v_k$.
+</div>
+
+<div class="definition">
+  <span class="label">Definition (Proportional Share).</span> Curator $i$'s proportional share at the moment they stake is:
+  $$s_i = \frac{v_i}{V_i^- + v_i} = \frac{v_i}{V_{i+1}^-}$$
+  For $i = 1$, the first curator holds 100% of the pool at entry, but their share dilutes as subsequent curators arrive.
+</div>
+
+<h3>3.2 Payout Parameters</h3>
+
+<p>Let $\alpha, \beta \in (0,1)$ with $\alpha + \beta < 1$. Define:</p>
+<ul>
+  <li>$\alpha$ — <strong>curator pool share</strong>: fraction of each new stake redistributed to prior curators</li>
+  <li>$\beta$ — <strong>platform share</strong>: fraction taken by the platform</li>
+  <li>$\gamma = 1 - \alpha - \beta$ — <strong>creator share</strong>: remainder going to the content creator</li>
+</ul>
+
+<h3>3.3 Payout Function</h3>
+
+<div class="definition">
+  <span class="label">Definition (Individual Payout).</span> When curator $j$ stakes $v_j$, the payout to prior curator $i < j$ is:
+  $$\pi(i,j) = v_j \cdot \alpha \cdot \frac{v_i}{V_j^-}$$
+</div>
+
+<div class="definition">
+  <span class="label">Definition (Total Curator Earnings).</span> The total earnings of curator $i$ over the lifetime of signal $S$:
+  $$E_i = \sum_{j=i+1}^{n} \pi(i,j) = \alpha \cdot v_i \sum_{j=i+1}^{n} \frac{v_j}{V_j^-}$$
+</div>
+
+<div class="remark">
+  <span class="label">Remark.</span> The inner sum $\Phi_i = \sum_{j=i+1}^{n} \frac{v_j}{V_j^-}$ measures the <em>relative growth</em> of the pool after curator $i$ arrived. Earlier curators face a smaller denominator $V_j^-$ for each subsequent $j$, yielding a larger $\Phi_i$. This is the formal expression of the <strong>first-mover advantage</strong>.
+</div>
+
+<h3>3.4 Revenue by Role</h3>
+
+<p><strong>Platform revenue:</strong>
+$$\Pi_{\mathcal{P}} = \beta \cdot V_n$$</p>
+
+<p><strong>Creator revenue:</strong>
+$$\Pi_{\mathcal{K}} = v_1(1 - \beta) + \sum_{j=2}^{n} v_j \cdot \gamma$$
+(The first curator's stake flows entirely to the creator minus platform cut; subsequent stakes split three ways.)</p>
+
+<p><strong>Total curator revenue:</strong>
+$$\Pi_{\mathcal{C}} = \alpha \cdot (V_n - v_1)$$</p>
+
+<div class="proposition">
+  <span class="label">Proposition (Conservation).</span> All stake is accounted for:
+  $$\Pi_{\mathcal{P}} + \Pi_{\mathcal{K}} + \Pi_{\mathcal{C}} = V_n$$
+</div>
+
+<h2 id="feed">4. Feed Mechanics</h2>
+
+<h3>4.1 Ranking Function</h3>
+
+<div class="definition">
+  <span class="label">Definition (Rank Score).</span> The rank score of signal $S$ at time $t$ is:
+  $$R(S, t) = \sum_{i:\, t_i \leq t} w(t - t_i) \cdot v_i$$
+  where $w : \mathbb{R}_{\geq 0} \to \mathbb{R}_{> 0}$ is a <strong>temporal weight function</strong>.
+</div>
+
+<p>The consumer feed at time $t$ is the ordered list of signals sorted by $R(S, t)$ descending. Feed position is a direct function of collective curator behavior.</p>
+
+<h3>4.2 Temporal Weight Functions</h3>
+
+<table>
+  <tr><th>Name</th><th>$w(\Delta t)$</th><th>Behavior</th></tr>
+  <tr><td>Accumulation</td><td>$1$</td><td>Pure stake total; no recency bias</td></tr>
+  <tr><td>Exponential decay</td><td>$e^{-\lambda \Delta t}$</td><td>Recent stakes dominate; $\lambda$ controls half-life</td></tr>
+  <tr><td>Power law</td><td>$(1 + \Delta t)^{-\theta}$</td><td>Heavy-tailed; HN-style algorithm</td></tr>
+  <tr><td>Step window</td><td>$\mathbf{1}[\Delta t \leq W]$</td><td>Only stakes within last $W$ time units count</td></tr>
+</table>
+
+<p>The choice of $w(\cdot)$ creates a tension between <em>stability</em> (rewarding proven quality) and <em>freshness</em> (surfacing new content).</p>
+
+<h3>4.3 The Staking–Feed Duality</h3>
+
+<p>A central structural observation: <strong>the curator payout function and the consumer feed ranking are the same data structure viewed from different perspectives.</strong> The staking pool $\{(v_i, t_i)\}$ simultaneously:</p>
+<ol>
+  <li>Determines curator earnings via $E_i$</li>
+  <li>Determines signal rank via $R(S, t)$</li>
+</ol>
+<p>Incentive design and feed quality are therefore <strong>coupled</strong> — you cannot change one without affecting the other.</p>
+
+<h2 id="consumer">5. Consumer Surplus</h2>
+
+<h3>5.1 Individual Utility</h3>
+
+<p>Consumer $u$ visiting the feed at time $t$ receives utility from consuming signal $S$ at rank position $r(S, t)$:</p>
+
+$$U_u(S, t) = q(S) - c(r(S, t))$$
+
+<p>where $c : \mathbb{N} \to \mathbb{R}_{\geq 0}$ is an increasing <strong>search cost function</strong>. Natural choices: $c(r) = \kappa \log r$ or $c(r) = \kappa \cdot r$.</p>
+
+<h3>5.2 Aggregate Consumer Surplus</h3>
+
+$$CS(t) = \sum_{u \in \mathcal{U}} \sum_{S \in \mathcal{S}} \mathbf{1}[u \text{ consumes } S] \cdot U_u(S, t)$$
+
+<p>A <strong>well-functioning mechanism</strong> maximizes $CS(t)$: high-$q$ signals rank high, low-$q$ signals sink regardless of stake concentration.</p>
+
+<h2 id="metrics">6. Mechanism Quality Metrics</h2>
+
+<p>These are the primary empirical targets for validation.</p>
+
+<h3>6.1 Signal Accuracy</h3>
+
+<div class="definition">
+  <span class="label">Definition.</span> At time $t$, signal accuracy is the Spearman rank correlation between total stake and true quality across all signals published before $t$:
+  $$\rho(t) = \text{Corr}_{\text{Spearman}}\!\left(V_n(S),\, q(S)\right)_{S:\, \tau(S) \leq t}$$
+</div>
+
+<p>A mechanism with $\rho(t) \to 1$ perfectly ranks by quality. $\rho(t) \approx 0$ means staking is uninformative.</p>
+
+<h3>6.2 Discovery Speed</h3>
+
+<div class="definition">
+  <span class="label">Definition.</span> For signal $S$ and threshold rank $k$, the discovery time is:
+  $$\Delta\tau^*(S, k) = \inf\!\left\{t : r(S, t) \leq k\right\} - \tau(S)$$
+</div>
+
+<p>Lower $\Delta\tau^*$ for high-$q$ signals is desirable. Ideally, discovery time is negatively correlated with true quality.</p>
+
+<h3>6.3 Curator ROI</h3>
+
+<div class="definition">
+  <span class="label">Definition.</span> The return on investment for curator $i$:
+  $$\mathrm{ROI}_i = \frac{E_i - v_i}{v_i} = \frac{E_i}{v_i} - 1$$
+</div>
+
+<p>The <strong>participation constraint</strong> requires $\mathbb{E}[\mathrm{ROI}_i] > 0$ for rational agents to stake. Characterizing when this holds — and for which curator positions — is a key analytical target.</p>
+
+<h2 id="questions">7. Open Questions for Validation</h2>
+
+<h3>Analytical</h3>
+<ol>
+  <li><strong>Participation constraint</strong>: For what distributions of $\{v_j\}_{j>i}$ and total $n$ does $\mathbb{E}[E_i] > v_i$? Is there a closed-form threshold?</li>
+  <li><strong>Equilibrium timing</strong>: Is there a Nash equilibrium in the timing game? Does first-mover advantage create a race to stake immediately, or does strategic delay emerge?</li>
+  <li><strong>Optimal weight function</strong>: Which $w(\cdot)$ maximizes $\rho(t)$ under a given stake distribution?</li>
+  <li><strong>Mechanism robustness</strong>: If a coordinated coalition of size $m$ stakes low-quality content, how much does $\rho(t)$ degrade? What minimum honest participation is needed?</li>
+</ol>
+
+<h3>Simulation</h3>
+<ol>
+  <li>How do curator earnings differ under uniform vs. power-law stake distributions?</li>
+  <li>How does the choice of $\alpha$ affect feed accuracy vs. curator participation rate?</li>
+  <li>What is the effect of time-decay weight $w(\cdot)$ on feed ranking stability?</li>
+</ol>
+
+<h3>Empirical</h3>
+<ol>
+  <li>On real platforms (Reddit, Hacker News, Mirror, Sound.xyz), does early endorsement predict final quality as measured by external signals?</li>
+  <li>Is curator ROI positive in expectation on platforms with explicit curator rewards?</li>
+  <li>Do platforms with time-decay ranking produce feeds with higher measured consumer satisfaction than pure accumulation platforms?</li>
+</ol>
+
+<h2 id="plan">8. Proposed Research Plan</h2>
+
+<table>
+  <tr><th>Phase</th><th>Work</th><th>Output</th></tr>
+  <tr><td><strong>1. Analytical</strong></td><td>Derive participation constraints; characterize Nash equilibria</td><td>Proofs / propositions</td></tr>
+  <tr><td><strong>2. Simulation</strong></td><td>Extend <code>cent_modeling</code> with configurable $w(\cdot)$, stake distributions, coalition attacks, metric sweeps</td><td>Updated codebase + plots</td></tr>
+  <tr><td><strong>3. Empirical</strong></td><td>Collect data from Reddit, HN, Mirror APIs; test model predictions</td><td>Dataset + validation results</td></tr>
+  <tr><td><strong>4. Write-up</strong></td><td>Generalized model paper; compare to TCR, bonding curve, prediction market literature</td><td>Paper draft</td></tr>
+</table>
+
+<hr>
+
+<h2>References</h2>
+<p id="ref1">[1] Petty, C. (2016). <em>cent_modeling: Modeling Cent.co Payout System</em>. GitHub. <a href="https://github.com/corpetty/cent_modeling">https://github.com/corpetty/cent_modeling</a></p>
+
+</body>
+</html>
