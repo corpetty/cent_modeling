@@ -177,7 +177,7 @@ $$
 </div>
 
 <div class="remark">
-  <span class="label">Remark.</span> The inner sum $\Phi_i = \sum_{j=i+1}^{n} \frac{v_j}{V_j^-}$ measures the <em>relative growth</em> of the pool after curator $i$ arrived. Earlier curators face a smaller denominator $V_j^-$ for each subsequent $j$, yielding a larger $\Phi_i$. This is the formal expression of the <strong>first-mover advantage</strong>.
+  <span class="label">Remark.</span> The inner sum $\Phi_i = \sum_{j=i+1}^{n} \frac{v_j}{V_j^-}$ measures the <em>relative growth</em> of the pool after curator $i$ arrived. Earlier curators face a smaller denominator $V_j^-$ for each subsequent $j$, yielding a larger $\Phi_i$. This is the formal expression of the <strong>first-mover advantage</strong>. Figure 1 illustrates this empirically: under a mixed-normal stake distribution, early-arriving curators are overwhelmingly profitable regardless of stake size. Figure 2 traces the earnings accumulation trajectory for individual curators, making the divergence between early and late arrivals concrete.
 </div>
 
 <figure>
@@ -191,6 +191,8 @@ $$
 </figure>
 
 <h3>3.4 Revenue by Role</h3>
+
+<p>The three-way split between curators, creator, and platform is governed by $\alpha$, $\beta$, and $\gamma$. Figure 5 sweeps $\alpha$ across the feasible range to show how this tradeoff plays out in practice.</p>
 
 <p><strong>Platform revenue:</strong>
 $$\Pi_{\mathcal{P}} = \beta \cdot V_n$$</p>
@@ -234,7 +236,7 @@ $$\Pi_{\mathcal{C}} = \alpha \cdot (V_n - v_1)$$</p>
   <tr><td>Step window</td><td>$\mathbf{1}[\Delta t \leq W]$</td><td>Only stakes within last $W$ time units count</td></tr>
 </table>
 
-<p>The choice of $w(\cdot)$ creates a tension between <em>stability</em> (rewarding proven quality) and <em>freshness</em> (surfacing new content).</p>
+<p>The choice of $w(\cdot)$ creates a tension between <em>stability</em> (rewarding proven quality) and <em>freshness</em> (surfacing new content). Figure 3 compares all four weight functions on the same staking sequence: the accumulation function never decays, permanently advantaging old staked content; time-decay variants restore freshness at the cost of rank stability.</p>
 
 <figure>
   <img src="fig3_ranking_decay.png" alt="Fig 3 — Ranking decay after last stake">
@@ -286,7 +288,7 @@ $$CS(t) = \sum_{u \in \mathcal{U}} \sum_{S \in \mathcal{S}} \mathbf{1}[u \text{ 
   $$\Delta\tau^*(S, k) = \inf\!\left\{t : r(S, t) \leq k\right\} - \tau(S)$$
 </div>
 
-<p>Lower $\Delta\tau^*$ for high-$q$ signals is desirable. Ideally, discovery time is negatively correlated with true quality.</p>
+<p>Lower $\Delta\tau^*$ for high-$q$ signals is desirable. Ideally, discovery time is negatively correlated with true quality. Figure 6 traces a single content item's rank trajectory as curators arrive in real time, marking the moment it crosses the consumer discovery threshold and showing how weight function choice affects both when that crossing occurs and whether the item later recedes to make room for fresher content.</p>
 
 <figure>
   <img src="fig6_discovery.png" alt="Fig 6 — Consumer discovery dynamics">
@@ -300,7 +302,7 @@ $$CS(t) = \sum_{u \in \mathcal{U}} \sum_{S \in \mathcal{S}} \mathbf{1}[u \text{ 
   $$\mathrm{ROI}_i = \frac{E_i - v_i}{v_i} = \frac{E_i}{v_i} - 1$$
 </div>
 
-<p>The <strong>participation constraint</strong> requires $\mathbb{E}[\mathrm{ROI}_i] > 0$ for rational agents to stake. Characterizing when this holds — and for which curator positions — is a key analytical target.</p>
+<p>The <strong>participation constraint</strong> requires $\mathbb{E}[\mathrm{ROI}_i] > 0$ for rational agents to stake. Characterizing when this holds — and for which curator positions — is a key analytical target. Figure 4 maps the ROI landscape across arrival fractions and $\alpha$ values: the break-even point is clearly visible, and its leftward shift as $\alpha$ decreases quantifies how much the profitable participation window shrinks under tighter curator allocations.</p>
 
 <figure>
   <img src="fig4_roi_phase.png" alt="Fig 4 — ROI phase diagram">

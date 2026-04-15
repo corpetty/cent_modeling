@@ -102,7 +102,7 @@ $$
 E_i = \sum_{j=i+1}^{n} \pi(i,j) = \alpha \cdot v_i \sum_{j=i+1}^{n} \frac{v_j}{V_j^-}
 $$
 
-> **Key object:** The inner sum $\Phi_i = \sum_{j=i+1}^{n} \frac{v_j}{V_j^-}$ measures the *relative growth* of the pool after curator $i$ arrived. Earlier curators face a smaller denominator $V_j^-$ for each subsequent $j$, yielding a larger $\Phi_i$. This is the formal expression of the **first-mover advantage**.
+> **Key object:** The inner sum $\Phi_i = \sum_{j=i+1}^{n} \frac{v_j}{V_j^-}$ measures the *relative growth* of the pool after curator $i$ arrived. Earlier curators face a smaller denominator $V_j^-$ for each subsequent $j$, yielding a larger $\Phi_i$. This is the formal expression of the **first-mover advantage**. Figure 1 illustrates this empirically: under a mixed-normal stake distribution, early-arriving curators are overwhelmingly profitable regardless of stake size. Figure 2 shows the earnings accumulation trajectory for individual curators, making the contrast between early and late arrivals concrete.
 
 ![Fig 1 — Curator stake vs. earnings. Bubble size = total earned; blue = profitable, red = didn't recoup stake. Mixed-normal stake distribution.](fig1_bubble.png)
 
@@ -113,6 +113,8 @@ $$
 *Figure 2: Cumulative earnings $E_i$ over time for five representative curators (uniform stake distribution, α = 0.5). The earliest curator (orange) captures a large share of every subsequent stake; late-arriving curators barely cross break-even.*
 
 ### 3.4 Revenue by Role
+
+The three-way split between curators, creator, and platform is governed by $\alpha$, $\beta$, and $\gamma$. Figure 5 sweeps $\alpha$ across the feasible range to show how this tradeoff plays out in practice.
 
 **Platform revenue:**
 $$\Pi_{\mathcal{P}} = \beta \cdot V_n$$
@@ -157,7 +159,7 @@ The consumer feed at time $t$ is the ordered list of signals sorted by $R(S, t)$
 | Power law | $(1 + \Delta t)^{-\theta}$ | Heavy-tailed; HN-style |
 | Step window | $\mathbf{1}[\Delta t \leq W]$ | Only stakes within last $W$ time units count |
 
-The choice of $w(\cdot)$ creates a tension between *stability* (rewarding proven quality) and *freshness* (surfacing new content).
+The choice of $w(\cdot)$ creates a tension between *stability* (rewarding proven quality) and *freshness* (surfacing new content). Figure 3 compares all four weight functions on the same staking sequence — the divergence in long-run behavior makes the design choice concrete: the accumulation function never decays, which means it permanently advantages old staked content; time-decay variants restore freshness at the cost of rank stability.
 
 ![Fig 3 — Rank score R(S,t) under four weight functions after the last stake arrives.](fig3_ranking_decay.png)
 
@@ -218,7 +220,7 @@ $$
 \Delta\tau^*(S, k) = \inf\!\left\{t : r(S, t) \leq k\right\} - \tau(S)
 $$
 
-Lower $\Delta\tau^*$ for high-$q$ signals is desirable. Ideally, discovery time is negatively correlated with true quality.
+Lower $\Delta\tau^*$ for high-$q$ signals is desirable. Ideally, discovery time is negatively correlated with true quality. Figure 6 traces a single content item's rank trajectory as curators arrive in real time, showing the moment it crosses the consumer discovery threshold — and highlighting how the choice of weight function affects both when that crossing occurs and whether the item later recedes to make room for fresher content.
 
 ![Fig 6 — Rank score rising as curators stake (exponential arrival), crossing the consumer discovery threshold Δτ*.](fig6_discovery.png)
 
@@ -232,7 +234,7 @@ $$
 \mathrm{ROI}_i = \frac{E_i - v_i}{v_i} = \frac{E_i}{v_i} - 1
 $$
 
-The **participation constraint** requires $\mathbb{E}[\mathrm{ROI}_i] > 0$ for rational agents to stake. Characterizing when this holds — and for which curator positions — is a key analytical target.
+The **participation constraint** requires $\mathbb{E}[\mathrm{ROI}_i] > 0$ for rational agents to stake. Characterizing when this holds — and for which curator positions — is a key analytical target. Figure 4 maps the ROI landscape across arrival fractions and $\alpha$ values: the break-even point (ROI = 0) is clearly visible, and its leftward shift as $\alpha$ decreases quantifies how much the participation window shrinks under tighter curator allocations.
 
 ![Fig 4 — Curator ROI as a function of arrival fraction, across four values of α.](fig4_roi_phase.png)
 

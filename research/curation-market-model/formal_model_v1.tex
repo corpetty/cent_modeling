@@ -127,7 +127,7 @@ The \textbf{total earnings} of curator $i$ over the lifetime of signal $S$ are:
 \end{definition}
 
 \begin{remark}
-The inner sum $\Phi_i = \sum_{j=i+1}^{n} \frac{v_j}{V_j^-}$ measures the \emph{relative growth} of the pool after curator $i$ arrived. Earlier curators face a smaller denominator $V_j^-$ for each subsequent $j$, yielding larger $\Phi_i$. This is the formal expression of the first-mover advantage.
+The inner sum $\Phi_i = \sum_{j=i+1}^{n} \frac{v_j}{V_j^-}$ measures the \emph{relative growth} of the pool after curator $i$ arrived. Earlier curators face a smaller denominator $V_j^-$ for each subsequent $j$, yielding larger $\Phi_i$. This is the formal expression of the first-mover advantage. Figure~\ref{fig:bubble} illustrates this empirically: under a mixed-normal stake distribution, early-arriving curators are overwhelmingly profitable regardless of stake size. Figure~\ref{fig:earnings_trajectory} traces the earnings accumulation trajectory for individual curators, making the divergence between early and late arrivals concrete.
 \end{remark}
 
 \begin{figure}[h]
@@ -145,6 +145,8 @@ The inner sum $\Phi_i = \sum_{j=i+1}^{n} \frac{v_j}{V_j^-}$ measures the \emph{r
 \end{figure}
 
 \subsection{Revenue by Role}
+
+The three-way split between curators, creator, and platform is governed by $\alpha$, $\beta$, and $\gamma$. Figure~\ref{fig:revenue_split} sweeps $\alpha$ across the feasible range to show how this tradeoff plays out in practice.
 
 \textbf{Platform revenue:}
 \[
@@ -209,7 +211,7 @@ Step window & $\mathbf{1}[\Delta t \leq W]$ & Only stakes within last $W$ time u
 \end{center}
 
 \begin{remark}
-The choice of $w(\cdot)$ creates a tension between \emph{stability} (rewarding proven quality) and \emph{freshness} (surfacing new content). A key empirical question is which weight function best predicts consumer satisfaction.
+The choice of $w(\cdot)$ creates a tension between \emph{stability} (rewarding proven quality) and \emph{freshness} (surfacing new content). Figure~\ref{fig:ranking_decay} compares all four weight functions on the same staking sequence: the accumulation function never decays, permanently advantaging old staked content; time-decay variants restore freshness at the cost of rank stability. A key empirical question is which weight function best predicts consumer satisfaction.
 \end{remark}
 
 \begin{figure}[h]
@@ -273,7 +275,7 @@ For a signal $S$ and threshold rank $k$, the \textbf{discovery time} is:
 \]
 \end{definition}
 
-A lower $\Delta\tau^*$ for high-$q$ signals is desirable. Ideally, discovery time is negatively correlated with quality.
+A lower $\Delta\tau^*$ for high-$q$ signals is desirable. Ideally, discovery time is negatively correlated with quality. Figure~\ref{fig:discovery} traces a single content item's rank trajectory as curators arrive in real time, marking the moment it crosses the consumer discovery threshold and showing how weight function choice affects both when that crossing occurs and whether the item later recedes to make room for fresher content.
 
 \begin{figure}[h]
   \centering
@@ -291,7 +293,7 @@ The \textbf{return on investment} for curator $i$ is:
 \]
 \end{definition}
 
-The \textbf{participation constraint} requires $\mathbb{E}[\mathrm{ROI}_i] > 0$ for rational agents to stake. Characterizing when this holds is a key analytical target.
+The \textbf{participation constraint} requires $\mathbb{E}[\mathrm{ROI}_i] > 0$ for rational agents to stake. Characterizing when this holds is a key analytical target. Figure~\ref{fig:roi_phase} maps the ROI landscape across arrival fractions and $\alpha$ values: the break-even point is clearly visible, and its leftward shift as $\alpha$ decreases quantifies how much the profitable participation window shrinks under tighter curator allocations.
 
 \begin{figure}[h]
   \centering

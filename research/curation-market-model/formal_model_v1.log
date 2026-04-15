@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.3.30)  15 APR 2026 21:02
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.3.30)  15 APR 2026 21:13
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -475,12 +475,12 @@ Overfull \hbox (119.74655pt too wide) in paragraph at lines 59--69
 
 [3{/home/petty/texlive/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}]
 [4]
-<fig1_bubble.png, id=169, 601.50877pt x 406.9357pt>
+<fig1_bubble.png, id=171, 601.50877pt x 406.9357pt>
 File: fig1_bubble.png Graphic file (type png)
 <use fig1_bubble.png>
 Package pdftex.def Info: fig1_bubble.png  used on input line 135.
 (pdftex.def)             Requested size: 405.57884pt x 274.38411pt.
-<fig2_earnings_trajectory.png, id=171, 601.50877pt x 406.9357pt>
+<fig2_earnings_trajectory.png, id=173, 601.50877pt x 406.9357pt>
 File: fig2_earnings_trajectory.png Graphic file (type png)
 <use fig2_earnings_trajectory.png>
 Package pdftex.def Info: fig2_earnings_trajectory.png  used on input line 142.
@@ -490,50 +490,43 @@ Package pdftex.def Info: fig2_earnings_trajectory.png  used on input line 142.
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 [5 <./fig1_bubble.png>]
-<fig5_revenue_split.png, id=182, 613.18315pt x 406.9357pt>
+<fig5_revenue_split.png, id=187, 613.18315pt x 406.9357pt>
 File: fig5_revenue_split.png Graphic file (type png)
 <use fig5_revenue_split.png>
-Package pdftex.def Info: fig5_revenue_split.png  used on input line 174.
+Package pdftex.def Info: fig5_revenue_split.png  used on input line 176.
 (pdftex.def)             Requested size: 405.57884pt x 269.16826pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[6 <./fig2_earnings_trajectory.png>]
-<fig3_ranking_decay.png, id=191, 621.522pt x 406.9357pt>
+[6 <./fig2_earnings_trajectory.png>] [7 <./fig5_revenue_split.png>]
+<fig3_ranking_decay.png, id=202, 621.522pt x 406.9357pt>
 File: fig3_ranking_decay.png Graphic file (type png)
 <use fig3_ranking_decay.png>
-Package pdftex.def Info: fig3_ranking_decay.png  used on input line 217.
+Package pdftex.def Info: fig3_ranking_decay.png  used on input line 219.
 (pdftex.def)             Requested size: 405.57884pt x 265.55443pt.
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-[7 <./fig5_revenue_split.png>] [8 <./fig3_ranking_decay.png>]
-<fig6_discovery.png, id=208, 613.18315pt x 406.9357pt>
+ [8 <./fig3_ranking_decay.png>] [9]
+<fig6_discovery.png, id=220, 613.18315pt x 406.9357pt>
 File: fig6_discovery.png Graphic file (type png)
 <use fig6_discovery.png>
-Package pdftex.def Info: fig6_discovery.png  used on input line 280.
+Package pdftex.def Info: fig6_discovery.png  used on input line 282.
 (pdftex.def)             Requested size: 405.57884pt x 269.16826pt.
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-<fig4_roi_phase.png, id=209, 619.29831pt x 406.9357pt>
+<fig4_roi_phase.png, id=222, 619.29831pt x 406.9357pt>
 File: fig4_roi_phase.png Graphic file (type png)
 <use fig4_roi_phase.png>
-Package pdftex.def Info: fig4_roi_phase.png  used on input line 298.
+Package pdftex.def Info: fig4_roi_phase.png  used on input line 300.
 (pdftex.def)             Requested size: 405.57884pt x 266.50446pt.
+
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[9] [10 <./fig6_discovery.png>]
-Overfull \hbox (1.66849pt too wide) in paragraph at lines 338--339
+[10 <./fig6_discovery.png>] [11 <./fig4_roi_phase.png>]
+Overfull \hbox (1.66849pt too wide) in paragraph at lines 340--341
 []\OT1/cmr/bx/n/12 Analytical\OT1/cmr/m/n/12 : De-rive closed-form par-tic-i-pa
 -tion con-straints; char-ac-ter-ize Nash equi-
  []
 
-[11 <./fig4_roi_phase.png>] [12] (./formal_model_v1.aux)
+[12] (./formal_model_v1.aux)
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2026-01-19>
@@ -548,7 +541,7 @@ Here is how much of TeX's memory you used:
  40792 multiletter control sequences out of 15000+600000
  639325 words of font info for 83 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 75i,9n,79p,1204b,585s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 75i,9n,79p,1204b,595s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </home/petty/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></h
 ome/petty/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbxti10.pfb></home
 /petty/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></home/pett
@@ -564,10 +557,10 @@ s/cm/cmti12.pfb></home/petty/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/
 cmti8.pfb></home/petty/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12
 .pfb></home/petty/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10
 .pfb></home/petty/texlive/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb>
-Output written on formal_model_v1.pdf (12 pages, 536885 bytes).
+Output written on formal_model_v1.pdf (12 pages, 538807 bytes).
 PDF statistics:
- 339 PDF objects out of 1000 (max. 8388607)
- 278 compressed objects within 3 object streams
+ 345 PDF objects out of 1000 (max. 8388607)
+ 284 compressed objects within 3 object streams
  73 named destinations out of 1000 (max. 500000)
  239 words of extra memory for PDF output out of 10000 (max. 10000000)
 
